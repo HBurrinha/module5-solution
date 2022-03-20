@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 // On first load, show home view
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
-  allCategoriesUrl, homeHtmlUrl,buildAndShowHomeHTML,
+  allCategoriesUrl, homeHtmlUrl, buildAndShowHomeHTML,
   function (responseText) {
     document.querySelector("#main-content").innerHTML = responseText;
   },// ***** <---- TODO: STEP 1: Substitute [...] ******
@@ -93,7 +93,7 @@ $ajaxUtils.sendGetRequest(
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
-function buildAndShowHomeHTML (categories) {
+var buildAndShowHomeHTML = function buildAndShowHomeHTML (categories) {
 
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
